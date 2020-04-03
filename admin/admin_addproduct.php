@@ -15,8 +15,12 @@ if (isset($_POST['submit'])) {
         'category'    => trim($_POST['catList'])
     );
 
-    $result  = addProduct($product);
-    $message = $result;
+    if(empty($product['name']) || empty($product['price']) || empty($product['description']) || empty($product['image']) || empty($product['category'])){
+        $message = 'Please fill and select ALL fields';    
+    }else{
+        $result  = addProduct($product);
+        $message = $result;
+    }
 }
 ?>
 
@@ -28,7 +32,9 @@ if (isset($_POST['submit'])) {
     <title>Add Product Page</title>
 </head>
 <body>
+    <h2>Add Product</h2>
     <?php echo !empty($message)?$message:'';?>
+    
     <form action="admin_addproduct.php" method="post" enctype="multipart/form-data">
         <label>Product Name:</label><br>
         <input type="text" name="name" value=""><br><br>
@@ -51,6 +57,8 @@ if (isset($_POST['submit'])) {
         </select><br><br>
 
         <button type="submit" name="submit">Add Product</button>
-    </form>
+    </form><br>
+
+    <a href="index.php">Back to dashboard</a>
 </body>
 </html>

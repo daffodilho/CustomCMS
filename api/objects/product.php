@@ -36,7 +36,7 @@ class Product
         $query .= ' GROUP BY p.product_id';
         $query .= ' HAVING category_name LIKE "%'.$category.'%"';
 
-        // prepare query statement
+        // prepare query 
         $stmt = $this->conn->prepare($query);
 
         // execute query
@@ -53,7 +53,7 @@ class Product
         $query .= ' WHERE p.product_id=' . $id;
         $query .= ' GROUP BY p.product_id';
 
-        // prepare query statement
+        // prepare query 
         $stmt = $this->conn->prepare($query);
 
         // execute query

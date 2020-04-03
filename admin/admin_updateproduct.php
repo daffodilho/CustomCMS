@@ -6,8 +6,6 @@
     $category = getAll($category_table);
 
     if (isset($_GET['id'])) {
-        // $tbl = 'tbl_product';
-        // $col = 'product_id';
 
         $args = array(
             'tbl'=>'tbl_product',
@@ -19,7 +17,6 @@
             'id'=>$_GET['id']
         );
         
-        // $product = getSingleProduct($tbl, $col, $id);
         $product = getSingleProductCat($args);
     } 
 
@@ -34,9 +31,13 @@
             'category'    => trim($_POST['catList']),
             'id'          => trim($_POST['id'])
         );
-        
-        $result  = updateProduct($newProduct);
-        $message = $result;
+
+        // if(empty($newproduct['name']) || empty($newproduct['price']) || empty($newproduct['description']) || empty($newproduct['image']) || empty($newproduct['category']) || empty($newproduct['id'])){
+        //     $message = 'Please fill and select ALL fields';    
+        // }else{
+            $result  = updateProduct($newProduct);
+            $message = $result;
+        // }
     }
 
 ?>
@@ -49,7 +50,7 @@
     <title>Update product</title>
 </head>
 <body>
-    <h2>Update this product</h2>
+    <h2>Please fill and select all fields</h2>
     <?php echo !empty($message)? $message : '';?>
 
     <form action="admin_updateproduct.php" method="post" enctype="multipart/form-data">

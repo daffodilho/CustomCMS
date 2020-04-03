@@ -13,8 +13,6 @@ function getAll($tbl){
 };
 
 function getSingleProduct($tbl, $col, $id){
-    // refer the function above to finish this one
-    // make sure it returns only one movie that is filtered by $col = $id
 
     $pdo = Database::getInstance()->getConnection();
 
@@ -63,9 +61,6 @@ function getSingleProductCat($args){
     $queryAll .= ' LEFT JOIN '.$args['tbl2'].' c ON link.'.$args['col2'].' = c.'.$args['col2'];
     $queryAll .= ' WHERE p.'.$args['col'].' = "'.$args['id'].'"';
 
-    // echo $queryAll;
-    // exit;
-
     $results = $pdo->query($queryAll);
 
     if($results){
@@ -74,4 +69,19 @@ function getSingleProductCat($args){
         return 'There was a problem accessing this info';
     }
 }
-?>
+
+function getSearchResult($search){
+    $pdo = Database::getInstance()->getConnection();
+
+    $query = "SELECT * FROM tbl_product WHERE product_name LIKE '%$search%' OR product_description LIKE '%$search%'";
+    $result = $pdo->query($query);
+    $queryResult = $result->rowCount();
+
+
+    if ($queryResult > 0){
+        return $result;
+    } else {
+        echo 'No results found';
+        return 'No results found';
+    }
+}

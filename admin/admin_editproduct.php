@@ -5,7 +5,7 @@
     $tbl = 'tbl_product';
     $products = getAll($tbl);
     if(!$products){
-        $message = 'Failed to get user list';
+        $message = 'Failed to get product list';
     }
 
     if(isset($_GET['id'])){
@@ -13,7 +13,7 @@
         $delete_result = deleteProduct($product_id);
 
         if(!$delete_result){
-            $message = 'Failed to delete user';
+            $message = 'Failed to delete product';
         }
     }
 ?>
@@ -26,8 +26,9 @@
     <title>Edit Products</title>
 </head>
 <body>
-    <h2>Select Product to edit</h2>
+    <h2>Select Product to update or delete</h2>
     <?php echo !empty($message)?$message:'';?>
+    
     <table>
         <thead>
             <tr>
@@ -51,5 +52,7 @@
         <?php endwhile;?>
         </tbody>
     </table>
+
+    <a href="index.php">Back to dashboard</a>
 </body>
 </html>
