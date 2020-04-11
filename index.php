@@ -27,24 +27,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Custom CMS</title>
+    <title>SportChek Custom CMS</title>
 </head>
 <body>
-    <header>
-        <h2>Header</h2>
-        <nav class="filterNav">
-            <ul>
-                <li><a href="index.php">All</a></li>
-                <li><a href="index.php?filter=Nike">Nike</a></li>
-                <li><a href="index.php?filter=Adidas">Adidas</a></li>
-                <li><a href="index.php?filter=Under Armour">Under Armour</a></li>
-                <li><a href="index.php?filter=Helly Hansen">Helly Hansen</a></li>
-                <li><a href="index.php?filter=Vans">Vans</a></li>
-                <li><a href="index.php?filter=New Balance">New Balance</a></li>
-                <li><a href="index.php?filter=Champion">Champion</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include 'templates/header.php';?>
 
     <div id="products">
     <?php while($row = $getProducts->fetch(PDO::FETCH_ASSOC)):?>

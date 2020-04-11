@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 29, 2020 at 11:54 PM
+-- Generation Time: Apr 03, 2020 at 11:32 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -152,6 +152,28 @@ INSERT INTO `tbl_product_cat` (`product_cat_id`, `product_id`, `category_id`) VA
 (34, 34, 7),
 (35, 35, 7);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `user_id` int(11) NOT NULL,
+  `user_fname` varchar(100) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `user_pass` varchar(100) NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  `user_ip` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_name`, `user_pass`, `user_email`, `user_ip`) VALUES
+(1, 'Daffodil', 'user', 'asdf', 'luckydaffodil@gmail.com', '::1');
+
 --
 -- Indexes for dumped tables
 --
@@ -175,6 +197,12 @@ ALTER TABLE `tbl_product_cat`
   ADD PRIMARY KEY (`product_cat_id`);
 
 --
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -188,13 +216,19 @@ ALTER TABLE `tbl_category`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `tbl_product_cat`
 --
 ALTER TABLE `tbl_product_cat`
-  MODIFY `product_cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `product_cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

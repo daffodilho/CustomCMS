@@ -2,7 +2,7 @@
 
 function addProduct($product)
 {
-    var_dump($product);
+    // var_dump($product);
 
     try {
         // 1. Connect to the DB
@@ -67,3 +67,4 @@ function addProduct($product)
         return $error;
     }
 }
+

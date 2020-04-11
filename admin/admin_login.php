@@ -25,6 +25,7 @@
 </head>
 <body>
     <!-- Before ? -> condition; after ? -> if condition is not met, carry out this task -->
+    <h2>Enter username and password</h2>
     <?php echo !empty($message)?$message:''; ?> 
     <form action="admin_login.php" method="post">
         <label>Username:</label><br>
